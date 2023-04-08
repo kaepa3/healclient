@@ -1,11 +1,17 @@
 <script setup lang="ts">
-import HelloWorld from "./components/HelloWorld.vue";
+import { useMeta } from "vue-meta";
+
+useMeta({
+  title: "Homepage",
+});
 </script>
 
 <template>
-  <router-link to="/">Home</router-link> ・
-  <router-link to="/edit">Edit</router-link>
-  <h1>Tester</h1>
+  <metainfo>
+    <template v-slot:title="{ content }">{{
+      content ? `${content} | SITE_NAME` : `SITE_NAME`
+    }}</template>
+  </metainfo>
   <router-view />
 </template>
 
